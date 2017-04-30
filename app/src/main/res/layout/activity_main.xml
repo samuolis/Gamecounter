@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.gamecounter.MainActivity">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/volleyball3" />
+
+    <TextView
+        android:id="@+id/topText"
+        style="@style/mytext"
+        android:background="@drawable/rounded_corner"
+        android:gravity="center_horizontal"
+        android:text="Beach Volleyball Counter"
+        android:textColor="#BF000000"
+        android:textSize="32sp" />
+
+    <LinearLayout
+        android:id="@+id/layoutmain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topText"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/sides"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_corner"
+            android:orientation="vertical">
+
+
+            <Button
+                android:layout_gravity="center"
+                android:id="@+id/openUserInputDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Team 1"
+                android:background="#00FFFFFF"
+                />
+
+
+            <TextView
+                android:id="@+id/TeamAScore"
+                style="@style/mytext"
+                android:gravity="center_horizontal"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="50sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="@dimen/activity_vertical_margin"
+                    android:background="@drawable/ball2"
+                    android:onClick="displayA"
+                    android:scaleType="centerInside" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/sides"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_corner"
+            android:orientation="vertical">
+
+
+            <Button
+                android:layout_gravity="center"
+                android:id="@+id/openUserInputDialog2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Team 2"
+                android:background="#00FFFFFF"/>
+
+
+            <TextView
+                android:id="@+id/TeamBScore"
+                style="@style/mytext"
+                android:gravity="center_horizontal"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="50sp" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="@dimen/activity_vertical_margin"
+                    android:background="@drawable/ball2"
+                    android:onClick="displayB"
+                    android:scaleType="centerInside" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/change"
+        style="@style/mytext"
+        android:text="Lets Play"
+        android:textSize="40sp"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/layoutmain"
+        android:textColor="#000000"
+        android:background="@drawable/rounded_corner"
+        />
+    <Button
+        android:layout_margin="@dimen/sides"
+        android:onClick="displayReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_corner"
+        android:text="Reset"/>
+
+
+
+</RelativeLayout>
