@@ -1,185 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-<RelativeLayout
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.android.gamecounter.MainActivity">
-
-
-    <ImageView
+    <RelativeLayout
+        android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/volleyball3" />
+        tools:context="com.example.android.gamecounter.MainActivity">
 
-    <TextView
-        android:id="@+id/topText"
-        style="@style/mytext"
-        android:background="@drawable/rounded_corner"
-        android:gravity="center_horizontal"
-        android:text="Beach Volleyball Counter"
-        android:textColor="#BF000000"
-        android:textSize="32sp" />
 
-    <LinearLayout
-        android:id="@+id/layoutmain"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/topText"
-        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/volleyball3" />
+
+        <TextView
+            android:id="@+id/topText"
+            style="@style/mytext"
+            android:background="@drawable/rounded_corner"
+            android:gravity="center_horizontal"
+            android:text="Beach Volleyball Counter"
+            android:textColor="#BF000000"
+            android:textSize="32sp" />
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:id="@+id/layoutmain"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/sides"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_corner"
-            android:orientation="vertical">
+            android:layout_below="@id/topText"
+            android:orientation="horizontal">
 
-
-            <Button
-                android:layout_gravity="center"
-                android:id="@+id/openUserInputDialog"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Team 1"
-                android:background="#00FFFFFF"
-                />
-
-            <TextView
-                android:id="@+id/final1"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:textSize="20sp"
-                android:text="0"
-                android:textColor="#000000"
-                android:gravity="center_horizontal"/>
+                android:layout_margin="@dimen/sides"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_corner"
+                android:orientation="vertical">
 
 
-            <TextView
-                android:id="@+id/TeamAScore"
-                style="@style/mytext"
-                android:gravity="center_horizontal"
-                android:text="0"
-                android:textColor="#000000"
-                android:textSize="50sp" />
+                <Button
+                    android:id="@+id/openUserInputDialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="#00FFFFFF"
+                    android:gravity="center"
+                    android:text="Team 1" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/final1"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
-                <ImageButton
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
-                    android:layout_centerInParent="true"
-                    android:layout_margin="@dimen/activity_vertical_margin"
-                    android:background="@drawable/ball2"
-                    android:onClick="displayA"
-                    android:scaleType="centerInside" />
+
+                <TextView
+                    android:id="@+id/TeamAScore"
+                    style="@style/mytext"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="#000000"
+                    android:textSize="50sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:layout_width="50sp"
+                        android:layout_height="50sp"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="@dimen/activity_vertical_margin"
+                        android:background="@drawable/ball2"
+                        android:onClick="displayA"
+                        android:scaleType="centerInside" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Press"
+                        android:textColor="#000000" />
+                </RelativeLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="Press"
-                    android:textColor="#000000"/>
-            </RelativeLayout>
+                    android:layout_gravity="center_horizontal"
+                    android:text="timeouts"
+                    android:textAllCaps="true" />
+
+                <Button
+                    android:id="@+id/timeoutCount1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="timeoutsCounting1"
+                    android:text="+2" />
 
 
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/sides"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_corner"
-            android:orientation="vertical">
-
-
-            <Button
-                android:layout_gravity="center"
-                android:id="@+id/openUserInputDialog2"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Team 2"
-                android:background="#00FFFFFF"/>
-
-            <TextView
-                android:id="@+id/final2"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:textSize="20sp"
-                android:textColor="#000000"
-                android:text="0"
-                android:gravity="center_horizontal"/>
+                android:layout_margin="@dimen/sides"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_corner"
+                android:orientation="vertical">
 
 
-            <TextView
-                android:id="@+id/TeamBScore"
-                style="@style/mytext"
-                android:gravity="center_horizontal"
-                android:text="0"
-                android:textColor="#000000"
-                android:textSize="50sp" />
+                <Button
+                    android:id="@+id/openUserInputDialog2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="#00FFFFFF"
+                    android:gravity="center"
+                    android:text="Team 2" />
+
+                <TextView
+                    android:id="@+id/final2"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/TeamBScore"
+                    style="@style/mytext"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="#000000"
+                    android:textSize="50sp" />
 
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <ImageButton
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
-                    android:layout_centerInParent="true"
-                    android:layout_margin="@dimen/activity_vertical_margin"
-                    android:background="@drawable/ball2"
-                    android:onClick="displayB"
-                    android:scaleType="centerInside"
-                    />
+
+                    <ImageButton
+                        android:layout_width="50sp"
+                        android:layout_height="50sp"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="@dimen/activity_vertical_margin"
+                        android:background="@drawable/ball2"
+                        android:onClick="displayB"
+                        android:scaleType="centerInside" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Press"
+                        android:textColor="#000000" />
+                </RelativeLayout>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="Press"
-                    android:textColor="#000000"/>
-            </RelativeLayout>
+                    android:layout_gravity="center_horizontal"
+                    android:text="timeouts"
+                    android:textAllCaps="true" />
+
+                <Button
+                    android:id="@+id/timeoutCount2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="timeoutsCounting2"
+                    android:text="+2" />
 
 
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-    <TextView
-        android:id="@+id/change"
-        style="@style/mytext"
-        android:text="Lets Play"
-        android:textSize="40sp"
-        android:gravity="center_horizontal"
-        android:layout_below="@id/layoutmain"
-        android:textColor="#000000"
-        android:background="@drawable/rounded_corner"
-        />
-    <Button
-        android:layout_margin="@dimen/sides"
-        android:onClick="displayReset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/rounded_corner"
-        android:text="Reset"/>
+
+        <TextView
+            android:id="@+id/change"
+            style="@style/mytext"
+            android:layout_below="@id/layoutmain"
+            android:background="@drawable/rounded_corner"
+            android:gravity="center_horizontal"
+            android:text="Lets Play"
+            android:textColor="#000000"
+            android:textSize="40sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/sides"
+            android:background="@drawable/rounded_corner"
+            android:onClick="displayReset"
+            android:text="Reset" />
 
 
-
-</RelativeLayout>
+    </RelativeLayout>
 </ScrollView>
