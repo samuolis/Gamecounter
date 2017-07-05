@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<RelativeLayout
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -48,6 +54,15 @@
                 android:background="#00FFFFFF"
                 />
 
+            <TextView
+                android:id="@+id/final1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:textSize="20sp"
+                android:text="0"
+                android:textColor="#000000"
+                android:gravity="center_horizontal"/>
+
 
             <TextView
                 android:id="@+id/TeamAScore"
@@ -69,6 +84,13 @@
                     android:background="@drawable/ball2"
                     android:onClick="displayA"
                     android:scaleType="centerInside" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Press"
+                    android:textColor="#000000"/>
             </RelativeLayout>
 
 
@@ -92,6 +114,15 @@
                 android:text="Team 2"
                 android:background="#00FFFFFF"/>
 
+            <TextView
+                android:id="@+id/final2"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:text="0"
+                android:gravity="center_horizontal"/>
+
 
             <TextView
                 android:id="@+id/TeamBScore"
@@ -106,6 +137,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
+
                 <ImageButton
                     android:layout_width="50sp"
                     android:layout_height="50sp"
@@ -113,7 +146,14 @@
                     android:layout_margin="@dimen/activity_vertical_margin"
                     android:background="@drawable/ball2"
                     android:onClick="displayB"
-                    android:scaleType="centerInside" />
+                    android:scaleType="centerInside"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Press"
+                    android:textColor="#000000"/>
             </RelativeLayout>
 
 
@@ -142,3 +182,4 @@
 
 
 </RelativeLayout>
+</ScrollView>

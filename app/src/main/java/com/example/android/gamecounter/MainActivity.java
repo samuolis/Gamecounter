@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 
 import static com.example.android.gamecounter.R.id.change;
+import static com.example.android.gamecounter.R.id.final1;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     private Button mButton2;
     public String Team1;
     public String Team2;
+    public int finalScore1=0;
+    public int finalScore2=0;
+    int scoreB = 0;
+    int scoreAB = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
         scoreB = preferences.getInt("ScoreB", 0);
         Team1=preferences.getString("Team1", "Team 1");
         Team2=preferences.getString("Team2", "Team 2");
+        finalScore1=preferences.getInt("finalA", 0);
+        finalScore2=preferences.getInt("finalB", 0);
         displayForTeamA(scoreA);
         displayForTeamB(scoreB);
         mButton.setText(Team1);
@@ -119,28 +126,40 @@ public class MainActivity extends AppCompatActivity {
         editor.putInt("ScoreB", scoreB);
         editor.putString("Team1", Team1);
         editor.putString("Team2", Team2);
+        editor.putInt("finalA", finalScore1);
+        editor.putInt("finalB", finalScore2);
         editor.apply();
     }
 
 
 
-    int scoreB = 0;
-    int scoreAB = 0;
+
 
     public void displayB(View view) {
         if (scoreA!=21)
             scoreB = scoreB + 1;
         if (scoreB>21)
-            scoreB=21;
+        {
+            resetFromJava();
+            scoreB = 1;
+
+        }
+        if (scoreB==21){
+            finalScore2=finalScore2+1;
+            Toast.makeText(this, "Winner is "+ Team2, Toast.LENGTH_LONG).show();
+
+        }
         displayForTeamB(scoreB);
+
     }
 
     public void displayForTeamB(int score) {
         TextView scoreView = (TextView) findViewById(R.id.TeamBScore);
         scoreView.setText(String.valueOf(score));
+        TextView finalView2 = (TextView) findViewById(R.id.final2);
+        finalView2.setText(String.valueOf(finalScore2));
         scoreAB = scoreA + scoreB;
         if(scoreB==21)
-            Toast.makeText(this, "Winner is "+ Team2, Toast.LENGTH_LONG).show();
         if (scoreB == 21||scoreA==21) {
             displayForTeamChange("Game Over");
         } else {
@@ -155,19 +174,33 @@ public class MainActivity extends AppCompatActivity {
     public void displayA(View view) {
         if (scoreB!=21)
             scoreA = scoreA + 1;
-        if (scoreA>21)
-            scoreA=21;
+        if (scoreA>21) {
+            resetFromJava();
+            scoreA = 1;
+
+        }
+        if (scoreA==21){
+
+            finalScore1=finalScore1+1;
+
+            Toast.makeText(this, "Winner is "+ Team1, Toast.LENGTH_LONG).show();
+
+
+        }
         displayForTeamA(scoreA);
+
     }
 
     public void displayForTeamA(int score) {
         TextView scoreView = (TextView) findViewById(R.id.TeamAScore);
         scoreView.setText(String.valueOf(score));
+        TextView finalView1 = (TextView) findViewById(R.id.final1);
+        finalView1.setText(String.valueOf(finalScore1));
         scoreAB = scoreA + scoreB;
         if (scoreA== 21)
-            Toast.makeText(this, "Winner is "+ Team1, Toast.LENGTH_LONG).show();
         if (scoreA == 21||scoreB==21) {
             displayForTeamChange("Game Over");
+
         } else {
             if (scoreAB % 7 == 0 && scoreAB != 0 && scoreB != 21) {
                 displayForTeamChange("Changing Sides");
@@ -180,9 +213,15 @@ public class MainActivity extends AppCompatActivity {
         TextView scoreView = (TextView) findViewById(change);
         scoreView.setText(String.valueOf(score));
 
-    }
+            }
 
     public void displayReset(View view) {
+        finalScore2=0;
+        finalScore1=0;
+        resetFromJava();
+    }
+
+    private void resetFromJava(){
         scoreB = 0;
         scoreA = 0;
         scoreAB = 0;
